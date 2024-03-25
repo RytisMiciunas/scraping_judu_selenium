@@ -1,0 +1,1 @@
+JUDU_URL = "https://judu.lt/"
