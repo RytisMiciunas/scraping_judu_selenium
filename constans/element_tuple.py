@@ -7,8 +7,6 @@ BUS_SCHEDULE_OPTION = \
     (By.XPATH, "//a[contains(text(),'Maršrutų tvarkaraščiai')]")
 SCHEDULE_IFRAME = (By.XPATH, "//iframe[@title='Schedules']")
 EXPRESS_BUS_OPTION = (By.XPATH, "//span[@class='transport-toggle toggle-expressbus']")
-# EXPRESS_BUS_OPTION = (By.XPATH, "//div[@onclick=\"pg.toggleTransport('expressbus');\"]")
-# EXPRESS_BUS_OPTION = (By.XPATH, "//div[@id='divContentRoutesResults']/div[1]")
 FOUR_G_BUS_BUTTON = (By.XPATH, "//a[@href='#expressbus/4g/a-b/map']")
 EUROPE_SQUARE_STOP = (By.XPATH, "//a[@data-index='11']")
 BICYCLE_CHECKBOX = (By.XPATH, "(//div[@class='bicycle-container'])[2]")
