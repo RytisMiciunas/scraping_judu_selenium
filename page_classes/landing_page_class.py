@@ -21,6 +21,8 @@ class LandingPage(Functionality):
         super().__init__(driver, wait, log)
 
     def go_to_vvt_schedule(self):
+        self.driver.maximize_window()
+        self.find_and_click_on_element(element_tuple.DECLINE_COOCKIES)
         dropbox = self.find_element(element_tuple.PUBLIC_TRANSPORT_FOR_TRAVELERS_DROPBOX)
         selecting = self.find_element(element_tuple.BUS_SCHEDULE_OPTION)
         self.action.move_to_element(dropbox).move_to_element(selecting).click().perform()

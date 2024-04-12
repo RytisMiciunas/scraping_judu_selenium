@@ -14,12 +14,17 @@ class Output:
 
     def no_duplicates_final_output_to_list(self, time_table):
         final_output_list = []
-        for hour in time_table:
-            reformed_hour_table = []
-            for minutes in hour[1]:
-                reformed_hour_table.append(f"{hour[0]}:{minutes}")
-            final_output_list.append(reformed_hour_table)
-        return final_output_list
+        try:
+            for hour in time_table:
+                reformed_hour_table = []
+                for minutes in hour[1]:
+                    reformed_hour_table.append(f"{hour[0]}:{minutes}")
+                final_output_list.append(reformed_hour_table)
+        except Exception as e:
+            self.log.critical(f"couldn't generate no duplicate list"
+                              f" {emoji.TASK_FAILED}. Error: {e}")
+        finally:
+            return final_output_list
 
     def mixed_duplicates_final_output_to_json(self, time_table):
         no_duplicates = []
@@ -30,11 +35,9 @@ class Output:
                      in enumerate(hour[1], start=1)}
             else:
                 no_duplicates.append(hour)
-        if len(self.flag) < 3:
+        if no_duplicates:
             print(f"Without duplicates {emoji.TASK_SUCCSEEDED}:")
             print(self.no_duplicates_final_output_to_list(no_duplicates))
-        else:
-            print(f"all times have duplicate {emoji.TASK_SUCCSEEDED}")
         self.print_to_jason_file()
 
     def print_to_jason_file(self):

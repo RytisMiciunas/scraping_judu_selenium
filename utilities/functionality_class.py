@@ -19,7 +19,7 @@ class Functionality:
     def find_element(self, element):
         return self.driver.find_element(*element)
 
-    def click_on_element(self, element):
+    def find_and_click_on_element(self, element):
         try:
             found_element = self.find_element(element)
             found_element.click()
@@ -32,7 +32,6 @@ class Functionality:
                 found_element.click()
             except Exception as e:
                 self.log.critical(f"failed to click on element {emoji.TASK_FAILED}. Error: {e}")
-
 
     def wait_for_element_clickable(self, element):
         self.wait.until(EC.element_to_be_clickable(element))

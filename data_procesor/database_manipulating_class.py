@@ -47,14 +47,6 @@ class DatabaseManipulating:
         self.connection = sqlite3.connect(url.DATABASE_URI)
         self.cursor = self.connection.cursor()
         try:
-            self.cursor.execute('''CREATE TABLE my_table (
-                                        id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                        hour INTEGER,
-                                        minutes TEXT
-                                    )''')
-            self.log.debug(f"created new data base {emoji.TASK_SUCCSEEDED}")
-        except sqlite3.Error as e:
-            self.log.debug(e)
             self.cursor.execute('DROP table my_table')
             self.cursor.execute('''CREATE TABLE my_table (
                                         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -95,7 +87,6 @@ class DatabaseManipulating:
             self.log.critical(f"Failed to generate time_table "
                               f"list and check is there is any duplicates "
                               f"{emoji.TASK_FAILED}")
-        print(f"the final flag looks like that: {self.flag}")
         return time_table
 
     def get_flag(self):

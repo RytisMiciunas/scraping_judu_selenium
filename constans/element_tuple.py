@@ -14,3 +14,6 @@ CHOOSE_SUNDAY_CHECKBOX = (By.XPATH, "//input[@data-workdays='7']")
 CHOOSE_SATURDAY_CHECKBOX = (By.XPATH, "//input[@data-workdays='6']")
 CHOOSE_WORKDAY_CHECKBOX = (By.XPATH, "//input[@data-workdays='12345']")
 TIME_TABLE = (By.XPATH, "//div[@id='schedule-new']")
+
+format_schedule = lambda schedule: [f"{doc['hour']}:{minute:02}" for doc in schedule for minute in
+                                    doc['minutes']]

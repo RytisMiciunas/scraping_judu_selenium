@@ -29,8 +29,8 @@ class Scraper(Functionality):
         data = []
         try:
             for row in scraped_data[1:]:
-                hour = row.find('th')
-                hour = hour.text
+                hour_cell = row.find('th')
+                hour = hour_cell.text
                 minute = row.find('td')
                 minute_array = []
                 for all_minutes in minute:
@@ -39,5 +39,5 @@ class Scraper(Functionality):
                 data.append((hour, minute_array))
             self.log.info(f"{emoji.INFO}Successfully scraped data from web ")
         except Exception as e:
-            self.log.critical(f"Failed to scrap data from web {emoji.TASK_FAILED}. Error:{e}")
+            self.log.error(f"Failed to scrap data from web {emoji.TASK_FAILED}. Error:{e}")
         return data

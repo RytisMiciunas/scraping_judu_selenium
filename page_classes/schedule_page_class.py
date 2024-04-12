@@ -33,10 +33,10 @@ class SchedulePage(Functionality):
 
         self.wait_for_frame_and_switch(element_tuple.SCHEDULE_IFRAME)
         self.wait_for_element_clickable(element_tuple.EXPRESS_BUS_OPTION)
-        self.click_on_element(element_tuple.EXPRESS_BUS_OPTION)
+        self.find_and_click_on_element(element_tuple.EXPRESS_BUS_OPTION)
 
         self.wait_for_element_clickable(element_tuple.FOUR_G_BUS_BUTTON)
-        self.click_on_element(element_tuple.FOUR_G_BUS_BUTTON)
+        self.find_and_click_on_element(element_tuple.FOUR_G_BUS_BUTTON)
 
     # this function checks is it just a regular day, saturday or sunday/holiday
     def check_what_day(self):
@@ -51,7 +51,7 @@ class SchedulePage(Functionality):
 
     def select_europe_square_stop(self):
         try:
-            self.click_on_element(element_tuple.EUROPE_SQUARE_STOP)
+            self.find_and_click_on_element(element_tuple.EUROPE_SQUARE_STOP)
         except Exception as e:
             self.log.error(f"failed to select Europe square bus stop"
                            f" {emoji.TASK_FAILED}. Error:{e}")
@@ -59,4 +59,4 @@ class SchedulePage(Functionality):
     def select_todays_schedule(self):
         self.find_element(element_tuple.CHOOSE_WORKDAY_CHECKBOX).is_displayed()
         self.wait_for_element_clickable(element_tuple.BICYCLE_CHECKBOX)
-        self.click_on_element(self.check_what_day())
+        self.find_and_click_on_element(self.check_what_day())
