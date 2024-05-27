@@ -1,0 +1,8 @@
+[MASTER]
+disable=
+    C0114, C0115, C0116, C3002, W0718
+
+    # C0114, C0115, C0116 - docstrings
+    # C3002 - lambda related warning
+    # W0718 - too broad exceptions
+    # R0903 - too few public methods
